@@ -74,7 +74,8 @@ allprojects {
 
 subprojects {
   group = rootProject.group
-  version = rootProject.version
+  // Hardcoding version for Kafka-K8S PoC to current tag
+  version = "2.5.137-Criteo"
 
   apply plugin: 'java'
   apply plugin: 'java-library'
@@ -84,7 +85,12 @@ subprojects {
   apply plugin: 'jacoco'
 
   // This project requires Java 11
-  sourceCompatibility = JavaVersion.VERSION_11
+  java {
+    toolchain {
+      languageVersion.set(JavaLanguageVersion.of(11))
+    }
+  }
+
 
   task sourcesJar(type: Jar, dependsOn: classes) {
     archiveClassifier.set("sources")

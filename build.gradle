@@ -75,7 +75,7 @@ allprojects {
 subprojects {
   group = rootProject.group
   // Hardcoding version for Kafka-K8S PoC to current tag
-  version = "2.5.137-Criteo"
+  version = "2.5.137-criteo"
 
   apply plugin: 'java'
   apply plugin: 'java-library'
